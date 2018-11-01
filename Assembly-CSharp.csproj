@@ -61,9 +61,136 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BalanceManager.cs" />
-    <Compile Include="Assets\GameController.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\GoogleVR\Scripts\Audio\FmodGvrAudio.cs" />
+    <Compile Include="Assets\GoogleVR\Scripts\Audio\FmodGvrAudioRoom.cs" />
+    <Compile Include="Assets\ResonanceAudio\Scripts\FmodResonanceAudio.cs" />
+    <Compile Include="Assets\ResonanceAudio\Scripts\FmodResonanceAudioRoom.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Attributes\TrackballGroupAttribute.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\AmbientOcclusionComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\BloomComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\BuiltinDebugViewsComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\ChromaticAberrationComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\ColorGradingComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\DepthOfFieldComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\DitheringComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\EyeAdaptationComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\FogComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\FxaaComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\GrainComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\MotionBlurComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\ScreenSpaceReflectionComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\TaaComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\UserLutComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Components\VignetteComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\AmbientOcclusionModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\AntialiasingModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\BloomModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\BuiltinDebugViewsModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\ChromaticAberrationModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\ColorGradingModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\DepthOfFieldModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\DitheringModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\EyeAdaptationModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\FogModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\GrainModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\MotionBlurModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\ScreenSpaceReflectionModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\UserLutModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Models\VignetteModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\PostProcessingBehaviour.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\PostProcessingComponent.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\PostProcessingContext.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\PostProcessingModel.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\PostProcessingProfile.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Utils\ColorGradingCurve.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Utils\GraphicsUtils.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
+    <Compile Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\Scripts\BalanceManager.cs" />
+    <Compile Include="Assets\Scripts\Calibrate.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\Grid.cs" />
+    <Compile Include="Assets\Scripts\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\Obstacle.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\Spawner.cs" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{9d8e86f0-86e3-4cab-a87a-770dbd14e318}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{55f07804-760a-4ef4-9161-9468be721728}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\EffectPresetFolder\{ac7aafa0-7016-4183-816d-8e80dce565f4}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Event\{fefb811a-29a5-4f63-8317-ce223b4d3c59}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\SnapshotGroup\{ab62e2ef-2b19-4800-b123-62c8f4583868}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{cd111576-9d8c-47d9-b1a6-03de2b381e5e}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{cd939bc2-204f-4dd8-a5f6-08c1f69f36f4}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Platform\{3be90857-5785-4910-a34b-48866a54bab5}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\Fog.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\LutGen.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{d85e18e3-41f9-45a9-839c-01966773939a}.xml" />
+    <None Include="Assets\bite.txt" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Mixer.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\ParameterPreset\{0391457d-e1cd-411b-b100-6ab34a6b3e0d}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Master.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Bank\{4a941766-abf7-45d2-a851-55fde1ef231d}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\ACES.cginc" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\EncodingSetting\{b67c2e16-f981-40ad-b7a9-383cde5b77e1}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\Uber.shader" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\EventFolder\{8d23cf2d-27c8-417d-b150-589335d840d9}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{343e978a-1f47-441f-9fa9-de3e325cd8b5}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\Blit.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\ParameterPreset\{4a630bf8-4750-42ee-b23a-34d87bc4428e}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{d37aab4b-1017-4b64-9710-ffaaf4720422}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Editor Resources\Monitors\VectorscopeCompute.compute" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\FXAA3.cginc" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\MotionBlur.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\Common.cginc" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\ParameterPreset\{13a6f485-9585-418a-9775-48c33a4f9bf4}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Editor Resources\UI\Trackball.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\Bloom.cginc" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Event\{242150df-5595-4bd3-a6e0-6dee4a5ed200}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\TAA.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Event\{2a5f21bb-1d2a-49ed-9b2f-7361da481f68}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Return\{e37b9376-65df-4978-8d47-989b0985028f}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\TAA.cginc" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Tags.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\EyeAdaptation.cginc" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\BankFolder\{a29c2876-8f90-4de8-98e4-db1723ccb423}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\GrainGen.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\FXAA.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\ParameterPresetFolder\{8d2cb678-ff28-492c-9f69-b4f0b6507cf9}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Event\{fdfe2546-9386-4653-931f-2bb418a6b5cd}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\Bloom.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Asset\{8e3a0b58-d390-4f3e-9b8e-08a509245551}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{0f4fceb7-4dac-463a-b498-30f0277e7a48}.xml" />
+    <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\Workspace.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{47319bf2-e6af-4d38-a01a-346bd2c270b6}.xml" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Gabi/Documents/Unity Games/WiiBalanceBaloon/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
@@ -316,6 +443,12 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{68AB1832-D7E1-6904-D38A-8B3D9F95BF67}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -17,6 +17,8 @@ public class SoundManager : MonoBehaviour
 	public string musicEvent;
     [EventRef]
     public string menuClickEvent;
+    [EventRef]
+    public string obstacleEvent;
 
     public static SoundManager instance;
     private EventInstance bagSpawnInst;
@@ -101,6 +103,25 @@ public class SoundManager : MonoBehaviour
         SimplePlay(menuClickEvent);
     }
 
+    /// <summary>
+    /// Play this when an obstacle spawn
+    /// </summary>
+    /// <param name="timeBeforeSpawning">Time before the "real" spawn of the obstacle</param>
+    /// <param name="timeAlive">Duration of the obstacle presence on the field after its "real" spawn</param>
+    public void Obstacle(float timeBeforeSpawning, float timeAlive)
+    {
+        StartCoroutine(cor_Obstacle(timeBeforeSpawning, timeAlive));
+    }
+
+    private IEnumerator cor_Obstacle (float timeBefore, float timeAlive)
+    {
+        EventInstance instance = RuntimeManager.CreateInstance(obstacleEvent);
+        instance.start();
+        yield return new WaitForSeconds(timeBefore);
+        instance.setParameterValue("spawn", 0.51f);
+        yield return new WaitForSeconds(timeAlive);
+        instance.setParameterValue("spawn", 1.0f);
+    }
 
 	private void SimplePlay(string str)
 	{

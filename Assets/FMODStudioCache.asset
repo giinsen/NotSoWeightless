@@ -20,9 +20,10 @@ MonoBehaviour:
   - {fileID: 114042214427982278}
   - {fileID: 114233658484108608}
   - {fileID: 114100865378352726}
+  - {fileID: 114165330684032718}
   MasterBankRef: {fileID: 114895065383651978}
   StringsBankRef: {fileID: 114505498768185826}
-  stringsBankWriteTime: 636766839331653505
+  stringsBankWriteTime: 636766862575629918
   cacheVersion: 2
 --- !u!114 &114006096003431734
 MonoBehaviour:
@@ -77,6 +78,21 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 2000
 --- !u!114 &114074096173871770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: weight
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114083804568252640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +163,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114390305799426316}
+  - {fileID: 114254931347235914}
   MinDistance: 0
   MaxDistance: 0
   Length: 2669
@@ -241,6 +257,28 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114165330684032718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/obstacle
+  guid: 55a991e20deb0c43b121125aa918c019
+  Banks:
+  - {fileID: 114895065383651978}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 9436
 --- !u!114 &114225504110381632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,11 +313,26 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114145556806353826}
+  - {fileID: 114665943461773310}
   MinDistance: 0
   MaxDistance: 0
   Length: 138782
 --- !u!114 &114240959553427398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: speed
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114254931347235914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,6 +389,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: weight
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114338724518854032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: speed
   Min: 0
   Max: 1
   Default: 0
@@ -426,11 +494,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\FMOD_project\ST1\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636766839331653505
+  lastModified: 636766862575629918
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 922
+    Value: 962
   Exists: 1
 --- !u!114 &114516005958021624
 MonoBehaviour:
@@ -586,10 +654,40 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 114298863796761958}
+  - {fileID: 114083804568252640}
   MinDistance: 0
   MaxDistance: 0
   Length: 664
+--- !u!114 &114665943461773310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: progress
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114710521087438692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: weight
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114715497633917358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,6 +733,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114832835542743306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: progress
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114895065383651978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,11 +760,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\UNITY\WiiBalanceBalloon\Assets\FMOD_project\ST1\Build\Desktop\Master Bank.bank
-  lastModified: 636766839331533622
+  lastModified: 636766862575529970
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1571712
+    Value: 1679296
   Exists: 1
 --- !u!114 &114941817779278798
 MonoBehaviour:

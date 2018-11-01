@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Start()
     {
+        SoundManager.instance.GameStart();
         rb = GetComponent<Rigidbody2D>();
         balanceManager = GameObject.FindGameObjectWithTag("BalanceManager").transform.GetComponent<BalanceManager>();
         gameController = GameObject.FindGameObjectWithTag("GameController").transform.GetComponent<GameController>();
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour {
         transform.rotation = new Quaternion(0, 0, 0, 0);
         SetSpeedHorizontal();
         SetSpeedVertical();
-        SoundManager.instance.BalloonSpeed(1);
+        //SoundManager.instance.BalloonSpeed(Mathf.Max(speedHorizontal, speedVertical));
 
         rb.velocity = Vector3.right * speedHorizontal * gameController.SPEED_MULTIPLICATOR_HORIZONTAL
                + Vector3.up * speedVertical * gameController.SPEED_MULTIPLICATOR_VERTICAL;

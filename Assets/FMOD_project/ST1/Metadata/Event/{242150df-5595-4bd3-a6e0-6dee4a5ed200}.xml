@@ -87,6 +87,9 @@
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{39b9d963-2da4-4077-84f5-002985c718bb}">
+        <property name="volume">
+            <value>10</value>
+        </property>
         <relationship name="effectChain">
             <destination>{d5bd5b4e-933f-47fe-8b2f-22fa62a3523d}</destination>
         </relationship>
@@ -114,8 +117,14 @@
         </relationship>
     </object>
     <object class="SingleSound" id="{4701abe3-6a1f-4769-8610-2e726ec11b52}">
+        <property name="isAsync">
+            <value>true</value>
+        </property>
         <property name="length">
             <value>2.6697083333333333</value>
+        </property>
+        <property name="looping">
+            <value>true</value>
         </property>
         <relationship name="automators">
             <destination>{805ae532-cbca-408e-94b8-0df95596852c}</destination>
@@ -158,6 +167,7 @@
     <object class="MixerBusEffectChain" id="{d5bd5b4e-933f-47fe-8b2f-22fa62a3523d}">
         <relationship name="effects">
             <destination>{1f85f7e3-d3be-4a5a-939d-fc78f3dd7db8}</destination>
+            <destination>{79ce0314-fa00-4177-bfda-5df033d1916b}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{332699c9-adb3-43fa-bd6b-5a3f82efa460}"/>
@@ -185,6 +195,17 @@
     </object>
     <object class="MixerBusPanner" id="{b1e7ba54-21e9-4376-b129-371dfa8fc7a7}"/>
     <object class="MixerBusFader" id="{1f85f7e3-d3be-4a5a-939d-fc78f3dd7db8}"/>
+    <object class="MixerSend" id="{79ce0314-fa00-4177-bfda-5df033d1916b}">
+        <property name="level">
+            <value>-18.5</value>
+        </property>
+        <property name="inputFormat">
+            <value>1</value>
+        </property>
+        <relationship name="mixerReturn">
+            <destination>{e37b9376-65df-4978-8d47-989b0985028f}</destination>
+        </relationship>
+    </object>
     <object class="AutomationCurve" id="{c6ac0cda-62dd-47d3-9844-f045e2a9da37}">
         <relationship name="parameter">
             <destination>{a8460cf4-3fee-4b58-9bc1-6a23d3bdb2cc}</destination>
@@ -209,7 +230,7 @@
             <value>0</value>
         </property>
         <property name="value">
-            <value>-10</value>
+            <value>-2</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{66f3a6b4-2536-443c-bead-02d59ffb6be6}">

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{cd939bc2-204f-4dd8-a5f6-08c1f69f36f4}">
+        <property name="assetPath">
+            <value>stone_on_metal2.mp3</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>2.6160000000000001</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{8e3a0b58-d390-4f3e-9b8e-08a509245551}</destination>
+        </relationship>
+    </object>
+</objects>

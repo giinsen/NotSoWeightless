@@ -25,13 +25,13 @@ public class SoundManager : MonoBehaviour
     private EventInstance balloonMoveInst;
 	private EventInstance musicInst;
 
-    private void Start()
+    private void Awake()
     {
         //Handle singleton
         if (instance == null)
             instance = this;
         else if (instance != this)
-            Destroy(this);
+            Destroy(this.gameObject);
 
         DontDestroyOnLoad(this);
 

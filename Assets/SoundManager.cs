@@ -15,6 +15,8 @@ public class SoundManager : MonoBehaviour
 	public string balloonHitEvent;
 	[EventRef]
 	public string musicEvent;
+    [EventRef]
+    public string menuClickEvent;
 
     public static SoundManager instance;
     private EventInstance bagSpawnInst;
@@ -90,6 +92,14 @@ public class SoundManager : MonoBehaviour
 	{
 		SimplePlay(balloonHitEvent);
 	}
+
+    /// <summary>
+    /// When a button is pressed
+    /// </summary>
+    public void MenuClick()
+    {
+        SimplePlay(menuClickEvent);
+    }
 
 
 	private void SimplePlay(string str)

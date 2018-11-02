@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{26955d75-ec3f-4432-b58b-f65dba7ae209}">
+        <property name="assetPath">
+            <value>67036__waterboy920__newspaper-2.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.98299319727891155</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{8e3a0b58-d390-4f3e-9b8e-08a509245551}</destination>
+        </relationship>
+    </object>
+</objects>

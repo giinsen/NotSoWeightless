@@ -20,18 +20,22 @@ public class MenuManager : MonoBehaviour {
             if (transform.parent.gameObject.name == "Jouer")
             {
                 SceneManager.LoadScene("GameScene");
+                SoundManager.instance.MenuClick();
             }
             else if (transform.parent.gameObject.name == "Options")
             {
                 Debug.Log("Options");
+                SoundManager.instance.MenuClick();
             }
             else if (transform.parent.gameObject.name == "Credits")
             {
                 Debug.Log("Credits");
+                SoundManager.instance.MenuClick();
             }
             else if (transform.parent.gameObject.name == "Quitter")
             {
                 Debug.Log("Quitter");
+                SoundManager.instance.MenuClick();
             }
         }
     }

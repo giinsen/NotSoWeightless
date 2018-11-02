@@ -9,6 +9,7 @@ public class Obstacle : MonoBehaviour {
     private float step2;
     private float step3;
     private float timer;
+    public Vector2[] anchorPoints;
 
 	void Awake ()
     {
@@ -16,6 +17,8 @@ public class Obstacle : MonoBehaviour {
         step1 = gameController.SPRITE_STEP_1;
         step2 = step1 + gameController.SPRITE_STEP_2;
         step3 = step2 + gameController.SPRITE_STEP_3;
+        SoundManager.instance.Obstacle(4f, 2f);
+        transform.position = anchorPoints[Random.Range(0, anchorPoints.Length)];
     }
 	
 
@@ -23,7 +26,7 @@ public class Obstacle : MonoBehaviour {
     {
         timer += Time.deltaTime;
         if (timer < step1)
-        {
+        {            
             Color tmp = this.GetComponent<SpriteRenderer>().color;
             tmp.r = 0f;
             tmp.g = 0f;

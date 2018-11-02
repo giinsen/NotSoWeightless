@@ -6,9 +6,14 @@ public class GameController : MonoBehaviour {
 
     [HideInInspector]
     public float MAX_WEIGHT;
+    [HideInInspector]
+    public float AVERAGE_WEIGHT;
+
+    public float PLAYER_HEALTH = 10.0f;
+    
 
     public float SPEED_MULTIPLICATOR_HORIZONTAL = 1.5f;
-    public float SPEED_MULTIPLICATOR_VERTICAL = 3.0f;
+    public float SPEED_MULTIPLICATOR_VERTICAL = 5.0f;
 
     public float SPAWNING_DELAY = 8.0f;
 

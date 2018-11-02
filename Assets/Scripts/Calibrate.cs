@@ -11,6 +11,7 @@ public class Calibrate : MonoBehaviour {
 
     public GameObject calibratePanel;
     public Text totalWeightText;
+    public bool calibrateDone = false;
 
     void Start () {
         calibratePanel.SetActive(true);
@@ -26,6 +27,8 @@ public class Calibrate : MonoBehaviour {
     public void Go()
     {
         calibratePanel.SetActive(false);
+        calibrateDone = true;
+        gameController.AVERAGE_WEIGHT = balanceManager.weight;
         gameController.MAX_WEIGHT = balanceManager.weight * 2;
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         Debug.Log("balance.weight :  " + balanceManager.weight);

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 60576974298935102}
   m_Layer: 0
   m_Name: Maison_Obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1700925541873450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 9.67, y: -1.08, z: 0}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.631}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -219,7 +219,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: f1fa9738d7c116d48bad4664c40aee8d, type: 3}
+  m_Sprite: {fileID: 21300002, guid: f21738a4e95f3874daf726e240fbc31a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

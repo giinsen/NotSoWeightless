@@ -9,24 +9,57 @@ public class Obstacle : MonoBehaviour {
     private float step2;
     private float step3;
     private float timer;
-    public Vector2[] anchorPoints;
 
-	void Awake ()
+    private Vector3 offSetPostition;
+
+    void Awake ()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").transform.GetComponent<GameController>();
         step1 = gameController.SPRITE_STEP_1;
         step2 = step1 + gameController.SPRITE_STEP_2;
         step3 = step2 + gameController.SPRITE_STEP_3;
+        offSetPostition = transform.position;
         SoundManager.instance.Obstacle(4f, 2f);
-        transform.position = anchorPoints[Random.Range(0, anchorPoints.Length)];
+
+        //int r = Random.Range(0, anchorPoints.Length);
+
+        //Vector3 position = new Vector3(anchorPoints[r].x, anchorPoints[r].y, 0);
+        //transform.position = position;
+
+        //if (!(anchorPointsRotation.Length == 0))
+        //{
+        //    Quaternion rotation = Quaternion.Euler(new Vector3(anchorPointsRotation[r].x, anchorPointsRotation[r].y, anchorPointsRotation[r].z));
+        //    transform.rotation = rotation;
+        //}       
     }
 	
 
 	void Update ()
     {
+        ObstacleLifeCycle();
+        if (gameObject.name.Contains("Helice"))
+        {
+            Debug.Log(gameObject.name);
+            transform.Rotate(Vector3.forward * Time.deltaTime * 40);
+        }
+        else if (gameObject.name.Contains("Plane"))
+        {
+            if (offSetPostition.x > 0 && timer > step2 && timer < step3) //délacer vers la gauche
+            {
+                transform.parent.GetComponent<Animator>().SetTrigger("AvionGaucheTrigger");
+            }
+            if (offSetPostition.x < 0 && timer > step2 && timer < step3) //délacer vers la droite
+            {
+                transform.parent.GetComponent<Animator>().SetTrigger("AvionDroiteTrigger");
+            }
+        }
+    }
+
+    private void ObstacleLifeCycle()
+    {
         timer += Time.deltaTime;
         if (timer < step1)
-        {            
+        {
             Color tmp = this.GetComponent<SpriteRenderer>().color;
             tmp.r = 0f;
             tmp.g = 0f;
@@ -55,7 +88,7 @@ public class Obstacle : MonoBehaviour {
         }
         else if (timer > step3)
         {
-            Destroy(this.gameObject);
+            Destroy(transform.parent.gameObject);
         }
-	}
+    }
 }

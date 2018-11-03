@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using WiimoteLib;
 using System.Text.RegularExpressions;
 using InTheHand.Net.Sockets;
@@ -11,6 +12,7 @@ using System.Net.Sockets;
 using System.Text;
 using System;
 using Debug = UnityEngine.Debug;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -21,6 +23,11 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb;
 
     public float health;
+    public Image healthBar;
+    public Image arrowBalance;
+    public GameObject PanelGame;
+
+    public GameObject PanelGameOver;
 
     private float speedHorizontal;
     private float speedVertical;
@@ -31,14 +38,23 @@ public class PlayerController : MonoBehaviour {
 
     private int actualSandbag = 9;
 
+    public GameObject spawnBagEffect;
+    public GameObject collisionEffect;
+
+    private bool dead = false;
+
+    private bool playerIsGodMode = false;
+    private float timerGodMode = 0f;
+
     private void Start()
     {
         SoundManager.instance.GameStart();
+        PanelGame.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         balanceManager = GameObject.FindGameObjectWithTag("BalanceManager").transform.GetComponent<BalanceManager>();
         gameController = GameObject.FindGameObjectWithTag("GameController").transform.GetComponent<GameController>();
         calibrate = GameObject.FindGameObjectWithTag("Calibrate").transform.GetComponent<Calibrate>();
-        health = gameController.PLAYER_HEALTH;
+        health = gameController.PLAYER_HEALTH_MAX;
         ChargeSandbagList(6);        
     }
 
@@ -47,11 +63,25 @@ public class PlayerController : MonoBehaviour {
     {
         if (!calibrate.calibrateDone)
             return;
-
+        if (health <= 0f)
+        {
+            if (dead == false)
+            {
+                PanelGame.SetActive(false);
+                transform.gameObject.GetComponent<Animator>().SetTrigger("GameOver");
+                Invoke("DestroyPlayer", 1.5f);
+                dead = true;
+            }
+            return;
+        }
+                    
         SetSpeedHorizontal();
         SetSpeedVertical();
+        SetArrowBalance();
         SetPitching();
         SetSandbag();
+        SetHealthbar();
+        SetGodMode();
 
         balloonHitTimer += Time.deltaTime;
 
@@ -61,6 +91,44 @@ public class PlayerController : MonoBehaviour {
                + Vector3.up * speedVertical * gameController.SPEED_MULTIPLICATOR_VERTICAL;
 
         //todo : si poids = 0 descendre
+    }
+
+    
+
+    private void SetGodMode()
+    {
+        if (playerIsGodMode == true && timerGodMode <= 3f)
+        {
+            timerGodMode += Time.deltaTime;
+            GetComponent<PolygonCollider2D>().enabled = false;
+        }
+        else
+        {
+            GetComponent<PolygonCollider2D>().enabled = true;
+            playerIsGodMode = false;
+            timerGodMode = 0f;
+        }
+
+    }
+    
+
+    private void DestroyPlayer()
+    {
+        PanelGameOver.SetActive(true);
+        Destroy(this.gameObject);        
+    }
+
+    private void SetHealthbar()
+    {
+        healthBar.fillAmount = health / gameController.PLAYER_HEALTH_MAX;
+    }
+
+    public bool PlayerIsDead()
+    {
+        if (health == 0)
+            return true;
+        else
+            return false;
     }
 
 
@@ -73,7 +141,21 @@ public class PlayerController : MonoBehaviour {
 
     private void SetSpeedVertical()
     {
-        speedVertical = (gameController.AVERAGE_WEIGHT - balanceManager.weight) *2;
+        speedVertical = (gameController.AVERAGE_WEIGHT - balanceManager.weight) * 2;
+    }
+    private void SetArrowBalance()
+    {
+        float left = balanceManager.bottomLeft + balanceManager.topLeft;
+        float right = balanceManager.bottomRight + balanceManager.topRight;
+
+        float z = -((left / (left + right))*(left + right));
+        arrowBalance.rectTransform.rotation = Quaternion.Euler(0, 0, z);
+    }
+
+    private void PlayerHit()
+    {
+        transform.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        playerIsGodMode = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -86,12 +168,14 @@ public class PlayerController : MonoBehaviour {
         if (collision.gameObject.tag == "Wall")
         {
             ReduceHealth(0.5f);
+            PlayerHit();            
         }
-        else if (collision.gameObject.tag == "Obstacle")
+        if (collision.transform.parent.gameObject.tag == "Obstacle")
         {
             ReduceHealth(1f);
+            PlayerHit();
         }
-
+        Instantiate(collisionEffect, collision.transform.position, Quaternion.identity);
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
@@ -118,7 +202,7 @@ public class PlayerController : MonoBehaviour {
 
     private void SetSandbag()
     {
-        if (speedHorizontal < -1.5) //gauche
+        if (speedHorizontal < -1.8) //gauche
         {
             if (balanceManager.weight < gameController.AVERAGE_WEIGHT * 0.8) //haut
             {
@@ -150,7 +234,7 @@ public class PlayerController : MonoBehaviour {
             else if (balanceManager.weight > gameController.AVERAGE_WEIGHT * 1.2) //bas
             {
                 sandbagList.RemoveAt(0); sandbagList.Add(5);
-                ActiveSandbag(true, true, true, true);
+                ActiveSandbag(true, true, false, true);
             }
                 
             else //stable
@@ -167,7 +251,7 @@ public class PlayerController : MonoBehaviour {
                 sandbagList.RemoveAt(0); sandbagList.Add(7);
                 ActiveSandbag(false, false, false, false);
             }
-            else if (speedVertical < -1.5) //bas
+            else if (speedVertical < -1) //bas
             {
                 sandbagList.RemoveAt(0); sandbagList.Add(8);
                 ActiveSandbag(true, true, true, true);
@@ -187,6 +271,7 @@ public class PlayerController : MonoBehaviour {
         {
             actualSandbag = sandbagList.ToArray()[0];
             SoundManager.instance.BagSpawn(1);
+            Instantiate(spawnBagEffect, this.transform.position + Vector3.down * 2.3f, Quaternion.identity);
             transform.Find("Sandbags").GetChild(0).gameObject.SetActive(premierDroite);
             transform.Find("Sandbags").GetChild(1).gameObject.SetActive(premierGauche);
             transform.Find("Sandbags").GetChild(2).gameObject.SetActive(deuxiemeDroite);

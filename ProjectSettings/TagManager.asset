@@ -7,6 +7,8 @@ TagManager:
   - BalanceManager
   - Calibrate
   - Wall
+  - Grid
+  - Obstacle
   layers:
   - Default
   - TransparentFX

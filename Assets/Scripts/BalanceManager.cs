@@ -43,8 +43,6 @@ public class BalanceManager : MonoBehaviour {
         }
     }
 
-    
-
     void OnMessageReiceived(System.IAsyncResult res)
     {
         IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 4000);

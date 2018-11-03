@@ -23,10 +23,18 @@
     <object class="MixerBusEffectChain" id="{448437c7-50df-4f07-bb6f-c9e5a10cf477}">
         <relationship name="effects">
             <destination>{b50eb461-787a-4872-ad3a-a2b4bf639349}</destination>
+            <destination>{0deb1339-b886-4a72-9525-389af0dd343a}</destination>
             <destination>{74569bd0-7bc0-4fec-8f74-c7fcd1aa6848}</destination>
         </relationship>
     </object>
-    <object class="MixerBusPanner" id="{aa8bc627-b3d1-40f7-a5a2-edfaec65ee43}"/>
+    <object class="MixerBusPanner" id="{aa8bc627-b3d1-40f7-a5a2-edfaec65ee43}">
+        <property name="overridingOutputFormat">
+            <value>1</value>
+        </property>
+        <property name="outputFormatOverridden">
+            <value>true</value>
+        </property>
+    </object>
     <object class="SFXReverbEffect" id="{b50eb461-787a-4872-ad3a-a2b4bf639349}">
         <property name="decayTime">
             <value>1900</value>
@@ -36,6 +44,14 @@
         </property>
         <property name="dryLevel">
             <value>-80</value>
+        </property>
+    </object>
+    <object class="ThreeEQEffect" id="{0deb1339-b886-4a72-9525-389af0dd343a}">
+        <property name="lowGain">
+            <value>-42</value>
+        </property>
+        <property name="highGain">
+            <value>-35</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{74569bd0-7bc0-4fec-8f74-c7fcd1aa6848}"/>

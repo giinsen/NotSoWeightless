@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f1fa9738d7c116d48bad4664c40aee8d
+guid: f21738a4e95f3874daf726e240fbc31a
 TextureImporter:
   fileIDToRecycleName:
     21300000: Obstacles_SpriteSheet_0
@@ -124,7 +124,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 344c3250ce030c74ca3be61185451965
+      spriteID: e651f7fa3e7db57499b4f96c7a428811
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e62c271fbf1002489db02f7ad231a05
+      spriteID: 4d619acf59c33304da6b1f570f20152b
       vertices: []
       indices: 
       edges: []
@@ -164,7 +164,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b005c8b31a8c904bbf62f5059f50bde
+      spriteID: 9c977ddc3052c2a438047502aa956e82
       vertices: []
       indices: 
       edges: []
@@ -184,7 +184,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 476fb9f972eb8044d9a86cd2cb1f44cd
+      spriteID: 2f131ec370e20e74993e938a7c3c3d59
       vertices: []
       indices: 
       edges: []
@@ -192,7 +192,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0d1abd2cd56594a46bf8175dfebccb8d
+    spriteID: 3ddbdab61e08ef047bcedcd23d6cc6c9
     vertices: []
     indices: 
     edges: []

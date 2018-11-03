@@ -13,6 +13,8 @@ public class Calibrate : MonoBehaviour {
     public Text totalWeightText;
     public bool calibrateDone = false;
 
+    public GameObject PanelGame;
+
     void Start () {
         calibratePanel.SetActive(true);
         balanceManager = GameObject.FindGameObjectWithTag("BalanceManager").transform.GetComponent<BalanceManager>();
@@ -21,12 +23,13 @@ public class Calibrate : MonoBehaviour {
     }
 	
 	void Update () {
-        totalWeightText.text = Mathf.RoundToInt(balanceManager.weight).ToString();
+        totalWeightText.text = "Poids Total : " + System.Math.Round(balanceManager.weight, 2).ToString() + " kg";
     }
 
     public void Go()
     {
         calibratePanel.SetActive(false);
+        PanelGame.SetActive(true);
         calibrateDone = true;
         gameController.AVERAGE_WEIGHT = balanceManager.weight;
         gameController.MAX_WEIGHT = balanceManager.weight * 2;

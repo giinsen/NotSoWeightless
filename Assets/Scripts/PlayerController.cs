@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using WiimoteLib;
+
 using System.Text.RegularExpressions;
-using InTheHand.Net.Sockets;
-using InTheHand.Net.Bluetooth;
+
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
@@ -39,7 +38,6 @@ public class PlayerController : MonoBehaviour {
     private int actualSandbag = 9;
 
     public GameObject spawnBagEffect;
-    public GameObject collisionEffect;
 
     private bool dead = false;
 
@@ -58,7 +56,6 @@ public class PlayerController : MonoBehaviour {
         ChargeSandbagList(6);        
     }
 
-
     private void Update()
     {
         if (!calibrate.calibrateDone)
@@ -69,6 +66,7 @@ public class PlayerController : MonoBehaviour {
             {
                 PanelGame.SetActive(false);
                 transform.gameObject.GetComponent<Animator>().SetTrigger("GameOver");
+                SoundManager.instance.GameOver();
                 Invoke("DestroyPlayer", 1.5f);
                 dead = true;
             }
@@ -77,7 +75,7 @@ public class PlayerController : MonoBehaviour {
                     
         SetSpeedHorizontal();
         SetSpeedVertical();
-        SetArrowBalance();
+        //SetArrowBalance();
         SetPitching();
         SetSandbag();
         SetHealthbar();
@@ -100,18 +98,34 @@ public class PlayerController : MonoBehaviour {
         if (playerIsGodMode == true && timerGodMode <= 3f)
         {
             timerGodMode += Time.deltaTime;
-            GetComponent<PolygonCollider2D>().enabled = false;
+            GameObject g = GameObject.FindGameObjectWithTag("Obstacle");
+            if (g != null)
+            {
+                foreach (Transform child in g.transform)
+                {
+                    if (child.name.Contains("Moulin"))
+                    {
+                        foreach (Transform c in child)
+                        {
+                            Debug.Log(c.name);
+                            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), c.GetComponent<PolygonCollider2D>(), true);
+                        }
+                    }
+                    else
+                    {
+                        Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), child.GetComponent<PolygonCollider2D>(), true);
+                    }
+                }
+            }           
         }
         else
         {
-            GetComponent<PolygonCollider2D>().enabled = true;
+            //GetComponent<PolygonCollider2D>().enabled = true;
             playerIsGodMode = false;
             timerGodMode = 0f;
         }
-
     }
     
-
     private void DestroyPlayer()
     {
         PanelGameOver.SetActive(true);
@@ -125,7 +139,7 @@ public class PlayerController : MonoBehaviour {
 
     public bool PlayerIsDead()
     {
-        if (health == 0)
+        if (health <= 0)
             return true;
         else
             return false;
@@ -136,12 +150,19 @@ public class PlayerController : MonoBehaviour {
     {
         float left = balanceManager.bottomLeft + balanceManager.topLeft;
         float right = balanceManager.bottomRight + balanceManager.topRight;
-        speedHorizontal = right - left;
+        if (float.IsNaN(right - left))
+        {
+            speedHorizontal = 0;
+        }
+        else
+        {
+            speedHorizontal = right - left;
+        }
     }
 
     private void SetSpeedVertical()
     {
-        speedVertical = (gameController.AVERAGE_WEIGHT - balanceManager.weight) * 2;
+        speedVertical = gameController.AVERAGE_WEIGHT - balanceManager.weight;
     }
     private void SetArrowBalance()
     {
@@ -154,8 +175,11 @@ public class PlayerController : MonoBehaviour {
 
     private void PlayerHit()
     {
-        transform.gameObject.GetComponent<Animator>().SetTrigger("Hit");
-        playerIsGodMode = true;
+        if (health >= 0.5f)
+        {
+            transform.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+            playerIsGodMode = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -175,7 +199,7 @@ public class PlayerController : MonoBehaviour {
             ReduceHealth(1f);
             PlayerHit();
         }
-        Instantiate(collisionEffect, collision.transform.position, Quaternion.identity);
+        //Instantiate(collisionEffect, collision.transform.position, Quaternion.identity);
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
@@ -271,7 +295,7 @@ public class PlayerController : MonoBehaviour {
         {
             actualSandbag = sandbagList.ToArray()[0];
             SoundManager.instance.BagSpawn(1);
-            Instantiate(spawnBagEffect, this.transform.position + Vector3.down * 2.3f, Quaternion.identity);
+            Instantiate(spawnBagEffect, this.transform.position + Vector3.down * 2.3f, Quaternion.identity, transform);
             transform.Find("Sandbags").GetChild(0).gameObject.SetActive(premierDroite);
             transform.Find("Sandbags").GetChild(1).gameObject.SetActive(premierGauche);
             transform.Find("Sandbags").GetChild(2).gameObject.SetActive(deuxiemeDroite);
@@ -298,6 +322,7 @@ public class PlayerController : MonoBehaviour {
 
     private void ReduceHealth(float damage)
     {
-        this.health -= damage;
+        if (!playerIsGodMode)
+            this.health -= damage;
     }
 }

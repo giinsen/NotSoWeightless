@@ -23,7 +23,7 @@ public class Calibrate : MonoBehaviour {
     }
 	
 	void Update () {
-        totalWeightText.text = "Poids Total : " + System.Math.Round(balanceManager.weight, 2).ToString() + " kg";
+        totalWeightText.text = System.Math.Round(balanceManager.weight, 2).ToString() + " kg";
     }
 
     public void Go()

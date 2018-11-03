@@ -26,5 +26,7 @@ public class GameController : MonoBehaviour {
     {
         SceneManager.LoadScene("GameScene");
         SoundManager.instance.MenuClick();
+        SoundManager.instance.ReturnToMenu();
+        SoundManager.instance.GameStart();
     }
 }

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using WiimoteLib;
+
 using System.Text.RegularExpressions;
-using InTheHand.Net.Sockets;
-using InTheHand.Net.Bluetooth;
+
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
@@ -49,11 +48,25 @@ public class BalanceManager : MonoBehaviour {
         byte[] bytedata = udpClient.EndReceive(res, ref endPoint);
         datastr = Encoding.ASCII.GetString(bytedata, 0, bytedata.Length);
 
-        AddList(float.Parse(datastr.Split('#')[0].Replace(',', '.')), ref weightList, 5);
-        AddList(float.Parse(datastr.Split('#')[1].Replace(',', '.')), ref topLeftList, 5);
-        AddList(float.Parse(datastr.Split('#')[2].Replace(',', '.')), ref topRightList,5);
-        AddList(float.Parse(datastr.Split('#')[3].Replace(',', '.')), ref bottomLeftList,5);
-        AddList(float.Parse(datastr.Split('#')[4].Replace(',', '.')), ref bottomRightList,5);
+        bool weightIsNaN;
+        weightIsNaN = float.IsNaN(float.Parse(datastr.Split('#')[0].Replace(',', '.')));
+        //UnityEngine.Debug.Log(float.Parse(datastr.Split('#')[3].Replace(',', '.')));
+        if (weightIsNaN)
+        {
+            AddList(0f, ref weightList, 5);
+            AddList(0f, ref topLeftList, 5);
+            AddList(0f, ref topRightList, 5);
+            AddList(0f, ref bottomLeftList, 5);
+            AddList(0f, ref bottomRightList, 5);
+        }
+        else
+        {
+            AddList(float.Parse(datastr.Split('#')[0].Replace(',', '.')), ref weightList, 5);
+            AddList(float.Parse(datastr.Split('#')[1].Replace(',', '.')), ref topLeftList, 5);
+            AddList(float.Parse(datastr.Split('#')[2].Replace(',', '.')), ref topRightList, 5);
+            AddList(float.Parse(datastr.Split('#')[3].Replace(',', '.')), ref bottomLeftList, 5);
+            AddList(float.Parse(datastr.Split('#')[4].Replace(',', '.')), ref bottomRightList, 5);
+        }
 
         weight = AverageList(ref weight, ref weightList);
         topLeft = AverageList(ref topLeft, ref topLeftList);

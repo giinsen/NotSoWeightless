@@ -10,13 +10,13 @@ public class Background : MonoBehaviour {
 
     private void Start()
     {
-        calibrate = GameObject.FindGameObjectWithTag("Calibrate").transform.GetComponent<Calibrate>();
+        //calibrate = GameObject.FindGameObjectWithTag("Calibrate").transform.GetComponent<Calibrate>();
     }
 
     void Update ()
     {
-        if (!calibrate.calibrateDone)
-            return;
+        //if (!calibrate.calibrateDone)
+        //    return;
 
         timer += Time.deltaTime;
 	    foreach (GameObject g in parallax)

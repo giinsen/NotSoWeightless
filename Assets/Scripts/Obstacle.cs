@@ -19,7 +19,7 @@ public class Obstacle : MonoBehaviour {
         step2 = step1 + gameController.SPRITE_STEP_2;
         step3 = step2 + gameController.SPRITE_STEP_3;
         offSetPostition = transform.position;
-        SoundManager.instance.Obstacle(4f, 2f);
+        SoundManager.instance.Obstacle(2f, 2f, 2f);
 
         //int r = Random.Range(0, anchorPoints.Length);
 
@@ -39,7 +39,6 @@ public class Obstacle : MonoBehaviour {
         ObstacleLifeCycle();
         if (gameObject.name.Contains("Helice"))
         {
-            Debug.Log(gameObject.name);
             transform.Rotate(Vector3.forward * Time.deltaTime * 40);
         }
         else if (gameObject.name.Contains("Plane"))

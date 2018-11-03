@@ -116,6 +116,7 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Obstacle.cs" />
     <Compile Include="Assets\Scripts\ObstacleGroup.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
@@ -129,6 +130,7 @@
     <None Include="Assets\FMOD_project\ST1\Metadata\SnapshotGroup\{ab62e2ef-2b19-4800-b123-62c8f4583868}.xml" />
     <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{cd111576-9d8c-47d9-b1a6-03de2b381e5e}.xml" />
     <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{cd939bc2-204f-4dd8-a5f6-08c1f69f36f4}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{d07c7d45-7c20-4879-a8df-204905562b1a}.xml" />
     <None Include="Assets\FMOD_project\ST1\Metadata\Platform\{3be90857-5785-4910-a34b-48866a54bab5}.xml" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\Fog.shader" />
@@ -141,11 +143,14 @@
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
     <None Include="Assets\FMOD_project\ST1\Metadata\ParameterPreset\{0391457d-e1cd-411b-b100-6ab34a6b3e0d}.xml" />
     <None Include="Assets\FMOD_project\ST1\Metadata\Master.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{a1ace2dc-618f-48c8-a5c9-1c17419533dc}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{039c0db3-3fd5-41e1-b55c-2db9532f6a88}.xml" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
     <None Include="Assets\FMOD_project\ST1\Metadata\Bank\{4a941766-abf7-45d2-a851-55fde1ef231d}.xml" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\ACES.cginc" />
     <None Include="Assets\FMOD_project\ST1\Metadata\EncodingSetting\{b67c2e16-f981-40ad-b7a9-383cde5b77e1}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{26955d75-ec3f-4432-b58b-f65dba7ae209}.xml" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\FMOD_project\ST1\Metadata\Event\{e291a955-eb0d-430c-b121-125aa918c019}.xml" />
     <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{eeb3d9a8-4129-4315-8b37-4708e179f7f3}.xml" />
@@ -172,6 +177,7 @@
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
     <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{722840a3-2551-43c6-815d-3cd20b9b710c}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{29f656dd-110c-4e23-afb6-3d0726b72afb}.xml" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\Common.cginc" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
     <None Include="Assets\FMOD_project\ST1\Metadata\ParameterPreset\{13a6f485-9585-418a-9775-48c33a4f9bf4}.xml" />
@@ -186,6 +192,8 @@
     <None Include="Assets\FMOD_project\ST1\Metadata\Event\{2a5f21bb-1d2a-49ed-9b2f-7361da481f68}.xml" />
     <None Include="Assets\FMOD_project\ST1\Metadata\Return\{e37b9376-65df-4978-8d47-989b0985028f}.xml" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\TAA.cginc" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{2e162034-c73c-4972-a3d1-6aecc3820e74}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{93018b17-7b7b-4a47-a08f-43990930fc9f}.xml" />
     <None Include="Assets\FMOD_project\ST1\Metadata\Tags.xml" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\EyeAdaptation.cginc" />
     <None Include="Assets\FMOD_project\ST1\Metadata\BankFolder\{a29c2876-8f90-4de8-98e4-db1723ccb423}.xml" />
@@ -207,8 +215,10 @@
     <None Include="Assets\FMOD_project\ST1\Metadata\Asset\{8e3a0b58-d390-4f3e-9b8e-08a509245551}.xml" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
     <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{f81d5dc8-697b-406c-a64e-1de86be27a8d}.xml" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{db4f8c67-42a1-4153-b970-c9427c9be856}.xml" />
     <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{0f4fceb7-4dac-463a-b498-30f0277e7a48}.xml" />
     <None Include="Assets\Scenes\AccueilScene\Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
+    <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{e9050686-ded2-46a2-b8dc-6d3673cb4217}.xml" />
     <None Include="Assets\FMOD_project\ST1\Metadata\Workspace.xml" />
     <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{47319bf2-e6af-4d38-a01a-346bd2c270b6}.xml" />
     <None Include="Assets\FMOD_project\ST1\Metadata\AudioFile\{d6019031-50d2-467e-a604-aafa21cdd1f2}.xml" />
@@ -424,12 +434,6 @@
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="InTheHand.Net.Personal">
-      <HintPath>C:/Users/Gabi/Documents/Unity Games/WiiBalanceBaloon/Assets/Plugins/InTheHand.Net.Personal.dll</HintPath>
-    </Reference>
-    <Reference Include="WiimoteLib">
-      <HintPath>C:/Users/Gabi/Documents/Unity Games/WiiBalanceBaloon/Assets/Plugins/WiimoteLib.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Gabi/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
